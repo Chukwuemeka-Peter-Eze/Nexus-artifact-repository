@@ -58,7 +58,7 @@ The Nexus dashboard cannot be accessed through the browser.
 Example:
 
 ```text
-http://<EC2-PUBLIC-IP>:8081
+http://localhost:3000-IP>:8081
 ```
 
 ---
