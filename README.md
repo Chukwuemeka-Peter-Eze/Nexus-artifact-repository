@@ -1,75 +1,96 @@
 # Nexus Artifact Repository on AWS
 
-![Project Banner](images/banner.png)
+<p align="center">
 
-> A production-style implementation of a Nexus Repository Manager deployed on AWS for managing, storing, versioning, and distributing software artifacts across the software development lifecycle.
+![AWS](https://img.shields.io/badge/Cloud-AWS-FF9900?style=for-the-badge&logo=amazonaws&logoColor=white)
+![Ubuntu](https://img.shields.io/badge/OS-Ubuntu-E95420?style=for-the-badge&logo=ubuntu&logoColor=white)
+![Linux](https://img.shields.io/badge/Linux-Administration-FCC624?style=for-the-badge&logo=linux&logoColor=black)
+![Java](https://img.shields.io/badge/Java-Runtime-ED8B00?style=for-the-badge&logo=openjdk&logoColor=white)
+![Nexus Repository](https://img.shields.io/badge/Artifact-Nexus%20Repository-1B1C30?style=for-the-badge)
+![Maven](https://img.shields.io/badge/Maven-Build%20Tool-C71A36?style=for-the-badge&logo=apachemaven&logoColor=white)
+![Gradle](https://img.shields.io/badge/Gradle-Build%20Tool-02303A?style=for-the-badge&logo=gradle&logoColor=white)
+![REST API](https://img.shields.io/badge/API-REST-009688?style=for-the-badge)
+
+</p>
+
+---
+
+# Repository Banner
+
+> **Replace the image below with your custom project banner.**
+
+```text
+images/banner.png
+```
+
+---
+
+# Table of Contents
+
+- Project Overview
+- Objectives
+- Key Features
+- Technology Stack
+- Project Architecture
+- Project Workflow
+- Repository Structure
+- Documentation
+- Screenshots
+- Demo Video
+- Skills Demonstrated
+- Lessons Learned
+- Future Improvements
+- License
 
 ---
 
 # Project Overview
 
-This repository documents the complete deployment, configuration, and management of a Nexus Repository Manager running on an AWS EC2 instance.
+This repository documents the end-to-end deployment, configuration, and administration of **Nexus Repository Manager** on an **AWS EC2** instance.
 
-The project demonstrates how a centralized artifact repository can improve software delivery by securely storing build outputs generated from different build systems such as Maven and Gradle.
+The project demonstrates how a centralized artifact repository can be deployed to manage software packages, organize repositories, store build artifacts, expose REST APIs, manage storage through Blob Stores, and automate artifact lifecycle management with Cleanup Policies.
 
-The implementation includes installation, repository management, artifact publishing, REST API usage, blob store configuration, cleanup policies, repository security, and administrative best practices.
+Rather than focusing only on installation, this repository captures the complete engineering process—from infrastructure provisioning and system configuration to repository administration, operational validation, troubleshooting, and technical documentation.
 
-Unlike storing build outputs directly inside source code repositories, Nexus provides centralized artifact management, versioning, controlled access, storage optimization, and faster dependency distribution for development teams.
-
-This repository documents every major configuration performed throughout the project together with architecture diagrams, screenshots, implementation notes, and practical demonstrations.
+The implementation is supported with architecture diagrams, screenshots, command references, demonstration videos, and detailed implementation guides to provide a reproducible reference for similar deployments.
 
 ---
 
 # Project Objectives
 
-The objectives of this project include:
+The primary objectives of this project were to:
 
-- Deploy Nexus Repository Manager on AWS EC2
-- Configure Java runtime environment
-- Configure Nexus as a Linux service
-- Secure the Nexus installation
-- Create and manage hosted repositories
-- Explore proxy and group repositories
-- Publish Maven artifacts
-- Publish Gradle artifacts
-- Query repositories using the Nexus REST API
-- Understand Components vs Assets
-- Configure Blob Stores
-- Create Cleanup Policies
-- Execute Cleanup Tasks
-- Document the entire deployment process
-- Demonstrate artifact lifecycle management
+- Deploy Nexus Repository Manager on AWS EC2.
+- Configure the required runtime environment.
+- Create and manage hosted repositories.
+- Explore proxy and group repositories.
+- Understand Blob Store architecture.
+- Configure Cleanup Policies.
+- Explore the Nexus REST API.
+- Publish and manage software artifacts.
+- Document the implementation using engineering best practices.
+- Produce a reusable deployment reference for future projects.
 
 ---
 
-# Project Architecture
+# Key Features
 
-```
+This repository includes:
 
-> **Insert Architecture Diagram Here**
-
-```
-
-Example:
-
-images/architecture-overview.png
-
----
-
-# AWS Infrastructure
-
-This project was deployed entirely on AWS.
-
-Infrastructure Components
-
-| Resource | Purpose |
-|----------|----------|
-| AWS EC2 | Nexus Server |
-| Ubuntu Linux | Operating System |
-| OpenJDK | Java Runtime |
-| Nexus Repository Manager | Artifact Repository |
-| Security Groups | Network Access Control |
-| SSH | Remote Administration |
+- AWS-based deployment of Nexus Repository Manager
+- Linux server administration
+- Java runtime configuration
+- Repository creation and management
+- Hosted, Proxy, and Group repository exploration
+- Blob Store configuration
+- Cleanup Policy implementation
+- Artifact publishing workflows
+- REST API exploration
+- Operational troubleshooting
+- Command reference documentation
+- Architecture diagrams
+- Practical implementation screenshots
+- Project walkthrough video
 
 ---
 
@@ -77,946 +98,447 @@ Infrastructure Components
 
 | Category | Technology |
 |-----------|------------|
-| Cloud | AWS |
+| Cloud Platform | AWS EC2 |
 | Operating System | Ubuntu Linux |
 | Artifact Repository | Nexus Repository Manager |
+| Runtime | Java |
 | Build Tools | Maven, Gradle |
-| Programming Language | Java |
-| REST API | Nexus API |
-| Version Control | Git |
+| API | Nexus REST API |
+| Shell | Bash |
 | Documentation | Markdown |
-| Diagramming | draw.io |
+| Architecture | draw.io |
+| Version Control | Git & GitHub |
+
+---
+
+# Repository Highlights
+
+| Area | Implementation |
+|------|----------------|
+| Infrastructure | AWS EC2 Deployment |
+| Artifact Storage | Nexus Repository Manager |
+| Repository Types | Hosted, Proxy, Group |
+| Storage Management | Blob Stores |
+| Lifecycle Management | Cleanup Policies |
+| API Integration | REST API |
+| Documentation | Comprehensive Markdown Guides |
+| Troubleshooting | Operational Runbooks |
+| Evidence | Screenshots & Video Demonstration |
+
+---
+
+# Why This Project Matters
+
+Artifact repositories are a critical component of modern software delivery pipelines.
+
+By introducing a centralized location for storing, versioning, and distributing software artifacts, organizations can improve build consistency, simplify dependency management, strengthen governance, and support scalable CI/CD workflows.
+
+This project demonstrates the foundational practices involved in deploying and operating an artifact repository in a cloud environment while documenting the implementation in a way that is reproducible and maintainable.
+
+---
+
+# Project Architecture
+
+The diagram below illustrates the high-level architecture implemented during this project.
+
+> **Replace the placeholder below with your exported draw.io architecture diagram.**
+
+```text
+architecture/aws-nexus-architecture.png
+```
+
+---
+
+# High-Level Architecture
+
+```text
+                         Developer
+
+                              │
+
+                              ▼
+
+                    SSH / Web Browser
+
+                              │
+
+                              ▼
+
+                      AWS EC2 Instance
+
+                              │
+
+                              ▼
+
+                     Ubuntu Linux Server
+
+                              │
+
+                              ▼
+
+                Nexus Repository Manager
+
+          ┌──────────────┼──────────────┐
+          │              │              │
+          ▼              ▼              ▼
+
+   Hosted Repository  Proxy Repository  Group Repository
+
+          │
+          ▼
+
+      Blob Store
+
+          │
+          ▼
+
+   Physical Storage
+
+          │
+          ▼
+
+ Maven / Gradle Artifacts
+```
+
+---
+
+# Project Workflow
+
+The following workflow summarizes the implementation completed during this project.
+
+```text
+Launch AWS EC2 Instance
+
+↓
+
+Configure Security Groups
+
+↓
+
+Connect via SSH
+
+↓
+
+Install Java Runtime
+
+↓
+
+Download Nexus Repository Manager
+
+↓
+
+Configure Nexus
+
+↓
+
+Start Nexus Service
+
+↓
+
+Access Web Interface
+
+↓
+
+Create Repositories
+
+↓
+
+Configure Blob Store
+
+↓
+
+Configure Cleanup Policies
+
+↓
+
+Explore REST API
+
+↓
+
+Publish Artifacts
+
+↓
+
+Validate Deployment
+
+↓
+
+Document Implementation
+```
 
 ---
 
 # Repository Structure
 
-```
-
+```text
 Nexus-artifact-repository/
 
+│
 ├── README.md
-
+├── LICENSE
+├── .gitignore
+│
 ├── architecture/
-
-├── screenshots/
-
+│   ├── aws-nexus-architecture.drawio
+│   ├── aws-nexus-architecture.png
+│   └── workflow.drawio
+│
 ├── docs/
-
-├── api/
-
-├── scripts/
-
+│   ├── installation.md
+│   ├── repository-management.md
+│   ├── api-reference.md
+│   ├── blob-store-cleanup-policy.md
+│   ├── troubleshooting.md
+│   ├── commands.md
+│   ├── lessons-learned.md
+│   └── project-summary.md
+│
 ├── images/
-
-└── LICENSE
-
+│   ├── banner.png
+│   └── architecture-overview.png
+│
+├── screenshots/
+│   ├── 01-ec2-instance.png
+│   ├── 02-security-group.png
+│   ├── 03-ssh-access.png
+│   ├── ...
+│   └── final-dashboard.png
+│
+├── scripts/
+│   ├── install-nexus.sh
+│   ├── start-nexus.sh
+│   ├── stop-nexus.sh
+│   └── backup.sh
+│
+└── videos/
+    └── demo.mp4
 ```
 
 ---
 
-# Solution Architecture
+# Screenshot Gallery
 
-The workflow implemented in this project follows a standard artifact management pipeline.
+The following screenshots document the implementation process from infrastructure provisioning through repository administration.
 
-Developer
+| Phase | Screenshot |
+|--------|------------|
+| AWS EC2 Instance | *(Insert Screenshot)* |
+| Security Group Configuration | *(Insert Screenshot)* |
+| SSH Connection | *(Insert Screenshot)* |
+| Java Installation | *(Insert Screenshot)* |
+| Nexus Download | *(Insert Screenshot)* |
+| Nexus Dashboard | *(Insert Screenshot)* |
+| Hosted Repository | *(Insert Screenshot)* |
+| Blob Store Configuration | *(Insert Screenshot)* |
+| Cleanup Policy | *(Insert Screenshot)* |
+| REST API Demonstration | *(Insert Screenshot)* |
+| Artifact Publishing | *(Insert Screenshot)* |
+| Final Working Environment | *(Insert Screenshot)* |
 
-↓
-
-Build Tool
-
-↓
-
-Generated Artifact
-
-↓
-
-Nexus Repository
-
-↓
-
-Blob Store
-
-↓
-
-Consumers
-
-Artifacts generated by Maven or Gradle are uploaded into Nexus where they are securely stored inside Blob Storage and later consumed by applications, deployment pipelines, or other development teams.
-
----
-
-# Deployment Workflow
-
-1. Launch AWS EC2 instance
-2. Configure Security Groups
-3. Connect using SSH
-4. Install Java
-5. Install Nexus Repository Manager
-6. Configure Nexus User
-7. Configure Permissions
-8. Start Nexus
-9. Access Nexus UI
-10. Configure Repositories
-11. Publish Artifacts
-12. Query Repository via REST API
-13. Configure Blob Store
-14. Configure Cleanup Policies
-15. Validate Repository Operations
+> Replace each placeholder with the corresponding screenshot from the `screenshots/` directory.
 
 ---
 
 # Project Demonstration
 
-## AWS EC2 Instance
+A walkthrough video accompanies this repository and demonstrates the deployment, configuration, and validation of the Nexus Repository Manager environment.
 
-> Insert Screenshot Here
+Suggested topics to cover in the video:
 
-```
+- Project introduction
+- AWS infrastructure overview
+- Nexus installation
+- Repository creation
+- Blob Store configuration
+- Cleanup Policy configuration
+- REST API exploration
+- Artifact publishing
+- Repository validation
+- Lessons learned
 
-![AWS EC2](screenshots/01-ec2-instance.png)
-
-```
-
----
-
-## SSH Connection
-
-> Insert Screenshot Here
-
-```
-
-![SSH](screenshots/02-ssh.png)
-
-```
-
----
-
-## Java Installation
-
-> Insert Screenshot Here
-
-```
-
-![Java](screenshots/03-java-installation.png)
-
-```
-
----
-
-## Nexus Installation
-
-> Insert Screenshot Here
-
-```
-
-![Nexus Installation](screenshots/04-nexus-installation.png)
-
-```
-
----
-
-## Nexus Running
-
-> Insert Screenshot Here
-
-```
-
-![Nexus Running](screenshots/05-nexus-running.png)
-
-```
-
----
-
-## Nexus Login
-
-> Insert Screenshot Here
-
-```
-
-![Login](screenshots/06-login.png)
-
-```
-
----
-
-# Installing Nexus Repository Manager
-
-The first phase of the project involved provisioning a dedicated Ubuntu EC2 instance on AWS and installing Nexus Repository Manager as a centralized artifact repository.
-
-A dedicated Linux user was configured to run the Nexus service securely, ensuring the application did not execute with root privileges.
-
-After installation, the necessary permissions were configured, the service was started, and network access was enabled through AWS Security Groups.
-
----
-
-## Launch AWS EC2 Instance
-
-> Insert Screenshot Here
+> **Video Placeholder**
 
 ```text
-screenshots/07-aws-instance.png
+videos/demo.mp4
 ```
 
----
-
-## Connect to Server via SSH
-
-> Insert Screenshot Here
-
-```text
-screenshots/08-ssh-session.png
-```
+If you upload the video to YouTube or another platform, you can replace the placeholder with the public link.
 
 ---
 
-## Install Java Runtime
+# Documentation Hub
 
-> Insert Screenshot Here
+Detailed implementation guides are available in the `docs/` directory.
 
-```text
-screenshots/09-java-installation.png
-```
-
----
-
-## Download Nexus Repository Manager
-
-> Insert Screenshot Here
-
-```text
-screenshots/10-download-nexus.png
-```
+| Document | Description |
+|----------|-------------|
+| `installation.md` | Complete installation and configuration guide |
+| `repository-management.md` | Hosted, Proxy, and Group repository management |
+| `api-reference.md` | REST API exploration and usage |
+| `blob-store-cleanup-policy.md` | Blob Stores, Components, Assets, and Cleanup Policies |
+| `troubleshooting.md` | Common issues and operational troubleshooting |
+| `commands.md` | Command reference and administration cheatsheet |
+| `lessons-learned.md` | Technical insights and engineering takeaways |
+| `project-summary.md` | Executive summary of the implementation |
 
 ---
 
-## Extract Nexus Package
+# Skills Demonstrated
 
-> Insert Screenshot Here
+This project provided hands-on experience across multiple areas of DevOps, cloud infrastructure, Linux administration, and software artifact management.
 
-```text
-screenshots/11-extract-package.png
-```
+## Cloud Infrastructure
 
----
-
-## Create Dedicated Nexus User
-
-Running enterprise applications with dedicated service accounts improves security by limiting privileges and isolating processes.
-
-> Insert Screenshot Here
-
-```text
-screenshots/12-create-user.png
-```
+- Provisioning and managing AWS EC2 instances
+- Configuring Security Groups for controlled network access
+- Remote server administration using SSH
+- Infrastructure validation and monitoring
 
 ---
 
-## Configure File Permissions
+## Linux System Administration
 
-Ownership of the Nexus installation and working directories was assigned to the Nexus user.
-
-> Insert Screenshot Here
-
-```text
-screenshots/13-file-permissions.png
-```
-
----
-
-## Configure Nexus Runtime
-
-The Nexus configuration was updated to ensure the application always starts using the dedicated service account.
-
-> Insert Screenshot Here
-
-```text
-screenshots/14-runtime-config.png
-```
+- Linux user and permission management
+- File and directory ownership configuration
+- Service management
+- Log inspection and troubleshooting
+- Process monitoring
+- Basic network diagnostics
 
 ---
 
-## Start Nexus
+## Artifact Repository Management
 
-Once configuration was completed, the Nexus service was started.
-
-> Insert Screenshot Here
-
-```text
-screenshots/15-start-nexus.png
-```
-
----
-
-## Verify Running Processes
-
-The running process was verified from the Linux terminal.
-
-> Insert Screenshot Here
-
-```text
-screenshots/16-process-check.png
-```
-
----
-
-## Access Nexus Web Interface
-
-After startup, the Nexus web interface became available through the EC2 public IP address.
-
-> Insert Screenshot Here
-
-```text
-screenshots/17-nexus-dashboard.png
-```
-
----
-
-# Nexus Repository Types
-
-One of the primary responsibilities of Nexus Repository Manager is organizing artifacts into repositories based on how they are consumed.
-
-Three repository types were explored during this project.
-
----
-
-## Hosted Repository
-
-Hosted repositories store internally produced artifacts.
-
-Examples include:
-
-- Company libraries
-- Internal Java packages
-- Build outputs
-- Release artifacts
-
-Characteristics:
-
-- Supports uploads
-- Stores organization-owned artifacts
-- Version controlled
-- Highly available
-
-> Insert Screenshot Here
-
-```text
-screenshots/18-hosted-repository.png
-```
-
----
-
-## Proxy Repository
-
-Proxy repositories cache packages downloaded from external repositories.
-
-Benefits include:
-
-- Faster dependency downloads
-- Reduced internet traffic
-- Improved reliability
-- Local caching
-
-> Insert Screenshot Here
-
-```text
-screenshots/19-proxy-repository.png
-```
-
----
-
-## Group Repository
-
-Group repositories combine multiple repositories behind a single endpoint, simplifying dependency management for developers.
-
-Advantages include:
-
-- Single repository URL
-- Simplified build configuration
-- Aggregated repositories
-- Easier maintenance
-
-> Insert Screenshot Here
-
-```text
-screenshots/20-group-repository.png
-```
-
----
-
-# Publishing Maven Artifacts
-
-One of the most common use cases for Nexus is storing Maven build artifacts.
-
-During this project:
-
-- A Maven project was built
-- A JAR artifact was generated
-- The artifact was uploaded into Nexus
-- Repository contents were verified
-
----
-
-## Maven Build
-
-> Insert Screenshot Here
-
-```text
-screenshots/21-maven-build.png
-```
-
----
-
-## Maven Upload
-
-> Insert Screenshot Here
-
-```text
-screenshots/22-maven-upload.png
-```
-
----
-
-## Verify Uploaded Artifact
-
-> Insert Screenshot Here
-
-```text
-screenshots/23-maven-verification.png
-```
-
----
-
-# Publishing Gradle Artifacts
-
-Gradle projects can also publish build artifacts directly into Nexus repositories.
-
-The project demonstrated the complete Gradle artifact publishing workflow.
-
-Steps completed:
-
-- Build project
-- Generate JAR
-- Configure publishing
-- Upload artifact
-- Verify upload
-
----
-
-## Gradle Build
-
-> Insert Screenshot Here
-
-```text
-screenshots/24-gradle-build.png
-```
-
----
-
-## Gradle Upload
-
-> Insert Screenshot Here
-
-```text
-screenshots/25-gradle-upload.png
-```
-
----
-
-## Verify Uploaded Gradle Artifact
-
-> Insert Screenshot Here
-
-```text
-screenshots/26-gradle-verification.png
-```
-
----
-
-# Nexus REST API
-
-Nexus Repository Manager provides a comprehensive REST API that enables automation, integration with CI/CD pipelines, repository management, artifact retrieval, and administrative operations.
-
-Instead of performing every operation through the graphical interface, many repository tasks can be automated using HTTP requests.
-
-During this project, the REST API was used to explore repositories, components, and stored assets.
-
----
-
-## Why Use the Nexus REST API?
-
-The REST API enables engineers to:
-
-- Automate repository administration
-- Query repository information
-- Retrieve stored artifacts
-- Integrate Nexus into CI/CD pipelines
-- Build deployment automation
-- Perform repository audits
-- Reduce repetitive manual tasks
-
----
-
-## Query Available Repositories
-
-The first API request retrieves all repositories configured within Nexus Repository Manager.
-
-> **Insert Screenshot Here**
-
-```text
-screenshots/27-api-repositories.png
-```
-
----
-
-## Query Repository Components
-
-Components represent logical software packages stored inside a repository.
-
-Examples include:
-
-- Java Libraries
-- Maven Packages
-- Gradle Packages
-- Release Artifacts
-
-During this project, repository components were queried successfully using the Nexus API.
-
-> **Insert Screenshot Here**
-
-```text
-screenshots/28-api-components.png
-```
-
----
-
-## Query Repository Assets
-
-Assets are the actual files associated with a component.
-
-Examples include:
-
-- JAR files
-- POM files
-- Metadata
-- Checksums
-
-Assets provide the physical files downloaded by applications and build systems.
-
-> **Insert Screenshot Here**
-
-```text
-screenshots/29-api-assets.png
-```
-
----
-
-# Understanding Components vs Assets
-
-One of the most important concepts within Nexus Repository Manager is understanding the distinction between Components and Assets.
-
-Although closely related, they represent different layers of artifact management.
-
----
-
-## Component
-
-A Component represents a logical software package.
-
-Examples include:
-
-- my-library
-- payment-service
-- customer-api
-- authentication-service
-
-A component groups together all files that belong to the same software release.
-
----
-
-## Asset
-
-An Asset is an individual file that belongs to a Component.
-
-Examples include:
-
-- application.jar
-- application.pom
-- application.sha1
-- application.md5
-
-Each component can contain multiple assets.
-
----
-
-## Relationship
-
-```text
-Component
-
-│
-
-├── application.jar
-
-├── application.pom
-
-├── application.sha1
-
-└── application.md5
-```
-
----
-
-> **Insert Screenshot Here**
-
-```text
-screenshots/30-components-assets.png
-```
-
----
-
-# Blob Store Configuration
-
-Blob Stores are the storage backends used by Nexus Repository Manager to physically store artifacts.
-
-Rather than storing files directly inside repositories, repositories reference a Blob Store where the actual files are maintained.
-
-This separation provides improved storage management, scalability, backup strategies, and repository administration.
-
----
-
-## Blob Store Objectives
-
-The Blob Store created during this project provides:
-
-- Centralized artifact storage
-- Efficient disk utilization
-- Repository abstraction
-- Improved backup management
-- Storage scalability
-
----
-
-## Create Blob Store
-
-A new Blob Store was created and configured for artifact storage.
-
-> **Insert Screenshot Here**
-
-```text
-screenshots/31-create-blob-store.png
-```
-
----
-
-## Assign Repository to Blob Store
-
-Repositories were configured to use the newly created Blob Store.
-
-This ensures that uploaded artifacts are stored in the appropriate storage backend.
-
-> **Insert Screenshot Here**
-
-```text
-screenshots/32-blob-store-assignment.png
-```
-
----
-
-# Cleanup Policies
-
-As repositories grow over time, unused artifacts consume storage and increase maintenance overhead.
-
-Cleanup Policies automate repository housekeeping by identifying artifacts that meet predefined criteria for removal.
-
-This helps maintain an efficient repository environment while reducing storage costs and administrative effort.
-
----
-
-## Why Cleanup Policies Matter
-
-Benefits include:
-
-- Reduced storage consumption
-- Improved repository performance
-- Automated maintenance
-- Removal of obsolete artifacts
-- Better storage lifecycle management
-- Reduced operational overhead
-
----
-
-## Create Cleanup Policy
-
-A cleanup policy was created to define retention rules for repository artifacts.
-
-> **Insert Screenshot Here**
-
-```text
-screenshots/33-create-cleanup-policy.png
-```
-
----
-
-## Attach Cleanup Policy to Repository
-
-The cleanup policy was associated with the appropriate repository.
-
-> **Insert Screenshot Here**
-
-```text
-screenshots/34-attach-cleanup-policy.png
-```
-
----
-
-## Execute Cleanup Task
-
-A cleanup task was manually executed to validate that the policy worked as expected.
-
-> **Insert Screenshot Here**
-
-```text
-screenshots/35-run-cleanup-task.png
-```
-
----
-
-## Verify Cleanup Results
-
-Repository contents were reviewed after execution to confirm successful cleanup.
-
-> **Insert Screenshot Here**
-
-```text
-screenshots/36-cleanup-results.png
-```
-
----
-
-# Key Skills Demonstrated
-
-This project demonstrates practical experience with:
-
-- AWS EC2 administration
-- Linux server management
-- Java runtime configuration
-- Nexus Repository Manager deployment
+- Nexus Repository Manager installation
 - Repository administration
+- Hosted repository configuration
+- Proxy repository exploration
+- Group repository exploration
+- Repository lifecycle management
+
+---
+
+## Software Package Management
+
 - Maven artifact publishing
 - Gradle artifact publishing
-- Repository security
-- REST API usage
-- Blob Store management
+- Artifact version management
+- Repository organization
+- Dependency management concepts
+
+---
+
+## Storage Management
+
+- Blob Store configuration
 - Components and Assets
-- Cleanup policy configuration
-- Artifact lifecycle management
-- Documentation
-- DevOps operational practices
+- Cleanup Policies
+- Cleanup Tasks
+- Repository storage optimization
 
 ---
 
-# Project Outcomes
+## REST API Integration
 
-At the completion of this project, I successfully:
-
-- Deployed Nexus Repository Manager on AWS
-- Configured a production-style repository environment
-- Managed multiple repository types
-- Published Maven artifacts
-- Published Gradle artifacts
-- Queried repository data using the REST API
-- Configured Blob Stores
-- Implemented automated cleanup policies
-- Validated artifact storage and retrieval workflows
-- Documented the complete implementation process with screenshots and supporting documentation
+- Repository API exploration
+- Repository information retrieval
+- Asset management
+- API authentication
+- Administrative automation concepts
 
 ---
 
-# Security Considerations
+## Documentation
 
-Securing an artifact repository is a critical aspect of software supply chain management. Since Nexus stores production-ready build artifacts, proper access control and infrastructure hardening are essential.
-
-Throughout this project, security best practices were incorporated into the deployment and administration of the Nexus Repository Manager.
-
-## Security Measures Implemented
-
-- Deployed Nexus on a dedicated AWS EC2 instance
-- Restricted administrative access using SSH
-- Configured AWS Security Groups to control inbound traffic
-- Created a dedicated Linux user to run the Nexus service
-- Avoided running Nexus as the root user
-- Used role-based user accounts within Nexus
-- Secured artifact upload permissions
-- Restricted repository administration to authorized users
-
-> **Insert Screenshot Here**
-
-```text
-screenshots/37-security-group.png
-```
+- Technical documentation
+- Architecture diagrams
+- Operational runbooks
+- Command references
+- Troubleshooting guides
+- Engineering documentation best practices
 
 ---
 
-# Repository Management Best Practices
+# Key Lessons Learned
 
-Effective repository management ensures artifact consistency, improves build performance, and supports long-term maintainability.
+Throughout this implementation, several important engineering concepts became clearer.
 
-The following practices were applied throughout this project:
+- Artifact repositories separate software packages from source code repositories.
+- Blob Stores provide the physical storage layer while repositories organize artifacts logically.
+- Cleanup Policies are essential for long-term storage management.
+- Linux administration skills are critical for operating self-managed services.
+- Cloud infrastructure configuration directly impacts application availability.
+- REST APIs enable repeatable automation beyond the graphical user interface.
+- Comprehensive documentation improves maintainability and knowledge sharing.
 
-- Separate repositories by purpose
-- Use meaningful repository names
-- Restrict upload permissions
-- Remove obsolete artifacts using Cleanup Policies
-- Monitor Blob Store utilization
-- Regularly review repository contents
-- Document repository configurations
-- Automate repetitive tasks through the REST API
-- Maintain version consistency
-- Keep repository structures organized
+For a detailed discussion of these topics, see:
 
----
-
-# Challenges Encountered
-
-Every infrastructure deployment presents opportunities to troubleshoot, learn, and refine operational skills.
-
-Some of the challenges encountered during this implementation included:
-
-### Service Startup Configuration
-
-Ensuring the Nexus service started correctly under a dedicated Linux user required proper permission management and runtime configuration.
-
----
-
-### Network Accessibility
-
-Validating AWS Security Group rules and ensuring the Nexus web interface was reachable from the browser.
-
----
-
-### Artifact Publishing
-
-Verifying Maven and Gradle publishing configurations to ensure successful uploads into the correct hosted repositories.
-
----
-
-### REST API Validation
-
-Testing repository endpoints and confirming successful responses while understanding the structure of Components and Assets.
-
----
-
-### Repository Organization
-
-Designing repository structures that support scalable artifact management and future growth.
-
-> **Insert Screenshot Here**
-
-```text
-screenshots/38-troubleshooting.png
-```
-
----
-
-# Lessons Learned
-
-This project provided valuable experience in artifact management and reinforced several important DevOps concepts.
-
-Key lessons include:
-
-- Artifact repositories are essential components of modern CI/CD pipelines.
-- Separating source code from build artifacts improves software lifecycle management.
-- Repository types serve different operational purposes and should be selected based on use case.
-- Blob Stores abstract physical storage from logical repositories.
-- Cleanup Policies help control storage growth and improve repository maintenance.
-- REST APIs enable automation and integration across the software delivery lifecycle.
-- Proper Linux permissions enhance application security and operational stability.
-- AWS provides a reliable and scalable platform for hosting DevOps infrastructure.
+**`docs/lessons-learned.md`**
 
 ---
 
 # Future Improvements
 
-Potential enhancements for this implementation include:
+If this environment were expanded into a production-ready deployment, potential improvements would include:
 
-- Integrate Nexus with Jenkins pipelines for automated artifact publishing
-- Configure Docker image repositories within Nexus
-- Enable HTTPS using a reverse proxy and SSL/TLS certificates
-- Implement automated backups for Blob Stores
-- Integrate external authentication providers such as LDAP
-- Configure repository replication for disaster recovery
-- Deploy Nexus behind an Application Load Balancer
-- Monitor Nexus using Prometheus and Grafana
-- Automate infrastructure provisioning with Infrastructure as Code
-- Implement high-availability deployment strategies
-
----
-
-# Repository Contents
-
-This repository contains the following resources:
-
-```text
-.
-├── README.md
-├── architecture/
-├── api/
-├── docs/
-├── images/
-├── screenshots/
-├── scripts/
-├── LICENSE
-└── .gitignore
-```
+- Enable HTTPS with SSL/TLS certificates
+- Deploy behind a reverse proxy
+- Integrate external authentication providers (LDAP or SSO)
+- Automate infrastructure provisioning using Infrastructure as Code
+- Implement automated backup and recovery procedures
+- Add monitoring and alerting
+- Integrate with CI/CD pipelines
+- Implement repository health monitoring
+- Configure high availability
+- Develop disaster recovery procedures
 
 ---
 
-# Documentation
+# Documentation Index
 
-Additional documentation is organized into the `docs/` directory.
+This repository contains detailed technical documentation covering every major aspect of the implementation.
 
-| Document | Description |
-|----------|-------------|
-| installation.md | Complete installation and configuration guide |
-| repository-management.md | Repository creation and management |
-| api-reference.md | Nexus REST API examples |
-| blob-store.md | Blob Store concepts and configuration |
-| cleanup-policy.md | Cleanup policy configuration and execution |
-| troubleshooting.md | Common issues and resolutions |
-| commands.md | Frequently used Linux and Nexus commands |
+| Document | Purpose |
+|-----------|---------|
+| `docs/project-summary.md` | Executive overview of the project |
+| `docs/installation.md` | Installation and configuration guide |
+| `docs/repository-management.md` | Repository administration |
+| `docs/blob-store-cleanup-policy.md` | Storage and artifact lifecycle management |
+| `docs/api-reference.md` | REST API documentation |
+| `docs/troubleshooting.md` | Operational troubleshooting |
+| `docs/commands.md` | Command reference |
+| `docs/lessons-learned.md` | Engineering insights and project reflections |
+
+---
+
+# Repository Assets
+
+This repository includes:
+
+- Architecture diagrams
+- AWS implementation
+- Technical documentation
+- Screenshot gallery
+- Command references
+- Troubleshooting guide
+- Demonstration video
+- Lessons learned
+- Project summary
 
 ---
 
 # References
 
-The implementation in this repository is based on practical deployment, experimentation, and official product documentation.
+Official documentation used for additional product reference:
 
-Useful references include:
+- Nexus Repository Manager Documentation
+- Apache Maven Documentation
+- Gradle Documentation
+- AWS EC2 Documentation
+- Ubuntu Server Documentation
+- OpenJDK Documentation
 
-- Nexus Repository Manager documentation
-- Nexus REST API documentation
-- AWS EC2 documentation
-- Ubuntu Server documentation
-- Maven documentation
-- Gradle documentation
-
----
-
-# Conclusion
-
-This project demonstrates the deployment and administration of a Nexus Repository Manager on AWS, covering the complete artifact management lifecycle from installation to repository administration, artifact publishing, REST API interaction, Blob Store configuration, and automated cleanup policies.
-
-By implementing these features in a practical environment, the project showcases skills in Linux administration, cloud infrastructure, artifact lifecycle management, DevOps operations, and technical documentation.
-
-The accompanying architecture diagrams, screenshots, terminal outputs, and demonstration video provide a comprehensive record of the implementation and can serve as a reference for similar deployments in production or learning environments.
-
----
-
-# Author
-
-**Chukwuemeka Peter Eze**
-
-Cloud | DevOps | Platform Engineering | AWS | Linux | CI/CD | Infrastructure Automation
+> This repository documents a practical implementation completed in an AWS environment and is intended as an educational and portfolio project.
 
 ---
 
@@ -1024,12 +546,36 @@ Cloud | DevOps | Platform Engineering | AWS | Linux | CI/CD | Infrastructure Aut
 
 This project is licensed under the MIT License.
 
-See the LICENSE file for additional information.
+See the `LICENSE` file for details.
 
 ---
 
 # Acknowledgements
 
-This repository documents an independently completed implementation of a Nexus Repository Manager deployed on AWS, including practical exercises, supporting documentation, architecture diagrams, screenshots, and demonstration materials.
+This repository represents a hands-on implementation completed to strengthen practical knowledge of artifact repository management, cloud infrastructure, Linux administration, and DevOps engineering practices.
 
-The focus of this repository is to showcase hands-on experience with artifact repository management, infrastructure administration, and DevOps practices in a cloud environment.
+The documentation, diagrams, screenshots, and implementation notes are intended to serve as a reusable technical reference for future deployments and continuous learning.
+
+---
+
+# Author
+
+**Chukwuemeka Peter Eze**
+
+Cloud • DevOps • Platform Engineering
+
+GitHub: https://github.com/Chukwuemeka-Peter-Eze
+
+LinkedIn: https://www.linkedin.com/in/chukwuemekapetereze/
+
+Notion: https://lumpy-bubble-7b0.notion.site/Artifact-Repository-Manager-with-Nexus-3a046a96f974805bbd59ffcf1c64c86e?source=copy_link
+
+---
+
+## Repository Status
+
+**Project Status:** Completed
+
+The deployment was successfully implemented, validated, documented, and organized into a comprehensive engineering portfolio project.
+
+Future enhancements and production-oriented improvements will continue to be explored as part of an ongoing DevOps learning journey.
