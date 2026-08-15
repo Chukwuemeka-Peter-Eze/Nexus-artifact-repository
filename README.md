@@ -424,16 +424,12 @@ Nexus-artifact-repository/
 └── source/
     ├── maven/
     │   ├── src/
-    │   ├── pom.xml
-    │   ├── Dockerfile
-    │   ├── Jenkinsfile
-    │   └── script.groovy
+    │   └── pom.xml
+    │   
     │
     └── gradle/
-        ├── app/
-        ├── Dockerfile
-        └── docker-compose.yaml
-
+        └── app/
+        
 ```
 
 The `source/` directory contains the actual application/build files used for the artifact publishing exercises. It is intentionally kept separate from Nexus administration material so the repository clearly distinguishes **artifact production** from **artifact management**.
