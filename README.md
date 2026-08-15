@@ -421,8 +421,7 @@ Nexus-artifact-repository/
 │   ├── 17-cleanup-policy.png
 │   └── 18-cleanup-task.png
 │
-└── source/
-    ├── maven/
+└── ├── maven/
     │   ├── src/
     │   └── pom.xml
     │   
