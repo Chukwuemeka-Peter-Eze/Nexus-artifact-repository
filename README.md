@@ -431,7 +431,7 @@ Nexus-artifact-repository/
         
 ```
 
-The `source/` directory contains the actual application/build files used for the artifact publishing exercises. It is intentionally kept separate from Nexus administration material so the repository clearly distinguishes **artifact production** from **artifact management**.
+The gradle/ and maven/ directories contain the Java applications and build configurations used for artifact creation and publishing to Nexus Repository.
 
 ---
 
