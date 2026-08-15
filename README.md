@@ -2,17 +2,17 @@
 
 <p align="center">
 
-![AWS](https://img.shields.io/badge/AWS-EC2-FF9900?style=for-the-badge\&logo=amazonaws\&logoColor=white)
-![Ubuntu](https://img.shields.io/badge/Ubuntu-Linux-E95420?style=for-the-badge\&logo=ubuntu\&logoColor=white)
+![AWS](https://img.shields.io/badge/AWS-EC2-FF9900?style=for-the-badge&logo=amazonaws&logoColor=white)
+![Ubuntu](https://img.shields.io/badge/Ubuntu-Linux-E95420?style=for-the-badge&logo=ubuntu&logoColor=white)
 ![Nexus](https://img.shields.io/badge/Nexus-Repository%20Manager-1B1C30?style=for-the-badge)
-![Java](https://img.shields.io/badge/Java-Runtime-ED8B00?style=for-the-badge\&logo=openjdk\&logoColor=white)
-![Maven](https://img.shields.io/badge/Maven-Build%20Tool-C71A36?style=for-the-badge\&logo=apachemaven\&logoColor=white)
-![Gradle](https://img.shields.io/badge/Gradle-Build%20Tool-02303A?style=for-the-badge\&logo=gradle\&logoColor=white)
+![Java](https://img.shields.io/badge/Java-Runtime-ED8B00?style=for-the-badge&logo=openjdk&logoColor=white)
+![Maven](https://img.shields.io/badge/Maven-Build%20Tool-C71A36?style=for-the-badge&logo=apachemaven&logoColor=white)
+![Gradle](https://img.shields.io/badge/Gradle-Build%20Tool-02303A?style=for-the-badge&logo=gradle&logoColor=white)
 ![REST API](https://img.shields.io/badge/REST%20API-Nexus-009688?style=for-the-badge)
 
 </p>
 
-> A practical implementation of a self-managed Nexus Repository Manager running on AWS EC2, covering artifact publishing, repository administration, API interaction, storage management, and artifact lifecycle control.
+> A practical implementation of a self-managed Nexus Repository Manager deployed on AWS EC2, covering artifact publishing, repository administration, API-driven operations, storage management, and artifact lifecycle control.
 
 ---
 
@@ -20,25 +20,39 @@
 
 This repository documents the deployment and operation of **Nexus Repository Manager on an AWS EC2 instance running Ubuntu Linux**.
 
-The implementation goes beyond installing Nexus. It demonstrates the operational model of an artifact repository: software artifacts are published into repositories, repository storage is backed by Blob Stores, Nexus exposes repository and artifact information through its REST API, and Cleanup Policies can be used to control artifact retention.
+The implementation focuses on the artifact-management layer of a software delivery system: build outputs are published to a centralized repository, repository storage is managed through Blob Stores, artifact metadata can be queried through the Nexus REST API, and Cleanup Policies provide a mechanism for controlling artifact retention.
 
-The implementation also covers publishing Java artifacts using **Maven and Gradle**, administering repositories through the Nexus UI, querying repository information through the API, and validating the resulting artifact storage.
+The implementation covers:
 
-The repository is structured around **implementation evidence rather than theoretical documentation**. Screenshots, architecture diagrams, source code, configuration notes, and operational documentation are included where they provide evidence of the work performed.
+- AWS EC2 infrastructure provisioning
+- Ubuntu Linux server administration
+- Java runtime configuration
+- Nexus Repository Manager deployment
+- Repository administration
+- Maven and Gradle artifact workflows
+- Hosted, Proxy, and Group repository concepts
+- REST API interaction
+- Components and Assets
+- Blob Store management
+- Cleanup Policies and cleanup tasks
+- Operational validation and troubleshooting
+
+The repository emphasizes **implementation evidence over unnecessary documentation**. Screenshots, architecture diagrams, source files, and focused operational documentation are included where they provide evidence of the engineering work performed.
 
 ---
 
 ## Engineering Scope
 
-The implementation covers five connected areas:
-
-| Area                 | Demonstrated Capability                                      |
-| -------------------- | ------------------------------------------------------------ |
-| Infrastructure       | AWS EC2 provisioning and network access                      |
-| Linux Administration | User isolation, permissions, processes and service operation |
-| Artifact Management  | Hosted, proxy and group repository concepts                  |
-| Developer Workflow   | Maven and Gradle artifact publishing                         |
-| Platform Operations  | REST API, Blob Stores and Cleanup Policies                   |
+| Area | Demonstrated Capability |
+|------|--------------------------|
+| Cloud Infrastructure | AWS EC2 provisioning and network access |
+| Linux Administration | Users, permissions, processes, services, and remote administration |
+| Artifact Management | Hosted, Proxy, and Group repositories |
+| Developer Workflow | Artifact production and publishing workflows |
+| Build Systems | Maven and Gradle |
+| Platform Operations | Nexus REST API, Blob Stores, and Cleanup Policies |
+| Validation | Repository, artifact, API, storage, and service validation |
+| Documentation | Architecture, deployment, operations, and implementation evidence |
 
 ---
 
@@ -158,6 +172,21 @@ The implementation explored the three primary repository behaviors:
 
 The practical work also covered repository formats including Maven-based Java artifacts.
 
+Source Code
+     │
+     ▼
+Build Process
+     │
+     ▼
+Build Artifact
+     │
+     ▼
+Nexus Repository
+     │
+     ├── Hosted
+     ├── Proxy
+     └── Group
+
 ---
 
 ## Artifact Publishing
@@ -191,6 +220,17 @@ Component
      └── Assets
 ```
 
+The important separation in this repository is:
+
+```text
+source/
+    → artifact production
+
+Nexus on AWS EC2
+    → artifact management
+```
+
+This distinction keeps the source projects separate from the infrastructure and platform administration material.
 Publishing requires the build tool to be configured with the Nexus repository address and appropriate credentials.
 
 ---
@@ -288,7 +328,7 @@ Eligible Artifacts Removed
 
 ---
 
-## Evidence
+## Implementation Evidence
 
 The repository uses screenshots as implementation evidence rather than decorative images.
 
@@ -350,8 +390,8 @@ The screenshot sequence follows the implementation flow from infrastructure thro
 Nexus-artifact-repository/
 │
 ├── README.md
+│
 ├── LICENSE
-├── .gitignore
 │
 ├── architecture/
 │   ├── nexus-architecture.drawio
@@ -381,12 +421,19 @@ Nexus-artifact-repository/
 │   ├── 17-cleanup-policy.png
 │   └── 18-cleanup-task.png
 │
-├── source/
-│   ├── maven/
-│   └── gradle/
-│
-└── scripts/
-    └── README.md
+└── source/
+    ├── maven/
+    │   ├── src/
+    │   ├── pom.xml
+    │   ├── Dockerfile
+    │   ├── Jenkinsfile
+    │   └── script.groovy
+    │
+    └── gradle/
+        ├── app/
+        ├── Dockerfile
+        └── docker-compose.yaml
+
 ```
 
 The `source/` directory contains the actual application/build files used for the artifact publishing exercises. It is intentionally kept separate from Nexus administration material so the repository clearly distinguishes **artifact production** from **artifact management**.
