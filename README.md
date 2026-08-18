@@ -370,11 +370,11 @@ The repository uses screenshots as implementation evidence rather than decorativ
 
 ![Repository Query](screenshots/14-repository-query.png)
 
-![Component and Asset Query](screenshots/15-component-asset-query.png)
-
 ### Storage and Lifecycle
 
 ![Blob Store](screenshots/16-blob-store.png)
+
+![Blob Store](screenshots/16-blob-store-2.png)
 
 ![Cleanup Policy](screenshots/17-cleanup-policy.png)
 
